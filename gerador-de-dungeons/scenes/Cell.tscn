@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bl2w5177n1c5b"]
+
+[ext_resource type="ArrayMesh" uid="uid://vf6wd7v7tkjs" path="res://Floor.obj" id="2"]
+[ext_resource type="Script" uid="uid://bvwxkfs1phvqp" path="res://scripts/Cell.gd" id="3"]
+[ext_resource type="ArrayMesh" uid="uid://crsl5a1xrb8y6" path="res://Wall.obj" id="4"]
+
+[sub_resource type="BoxShape3D" id="2"]
+
+[node name="Cell" type="Area3D" unique_id=249037557]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("3")
+
+[node name="TopFace" type="MeshInstance3D" parent="." unique_id=198244941]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 2, 0)
+mesh = ExtResource("2")
+
+[node name="NorthFace" type="MeshInstance3D" parent="." unique_id=1149760875]
+transform = Transform3D(-1, 4.37114e-08, -4.37114e-08, -4.37114e-08, 4.37114e-08, 1, 4.37114e-08, 1, -4.37114e-08, 0, 1, -1)
+mesh = ExtResource("4")
+
+[node name="EastFace" type="MeshInstance3D" parent="." unique_id=2080075064]
+transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, 1, -1, 4.37114e-08, -4.37114e-08, 1, 1, 0)
+mesh = ExtResource("4")
+
+[node name="SouthFace" type="MeshInstance3D" parent="." unique_id=273892861]
+transform = Transform3D(1, -4.37114e-08, 4.37114e-08, -4.37114e-08, 1.31134e-07, 1, -4.37114e-08, -1, 1.31134e-07, 0, 1, 1)
+mesh = ExtResource("4")
+
+[node name="WestFace" type="MeshInstance3D" parent="." unique_id=1757953658]
+transform = Transform3D(4.37114e-08, 1, -8.74228e-08, -4.37114e-08, 8.74228e-08, 1, 1, -4.37114e-08, 4.37114e-08, -1, 1, 0)
+mesh = ExtResource("4")
+
+[node name="BottomFace" type="MeshInstance3D" parent="." unique_id=976238102]
+mesh = ExtResource("2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1622890200]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("2")

@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://c0bb7yweax3wb"]
+
+[ext_resource type="Script" uid="uid://gdul8j2s51y6" path="res://scripts/World.gd" id="1_55fkc"]
+[ext_resource type="PackedScene" uid="uid://bl2w5177n1c5b" path="res://scenes/Cell.tscn" id="2_c2cjw"]
+[ext_resource type="PackedScene" uid="uid://ccjocsdwcn5je" path="res://scenes/Player.tscn" id="3_ii2sf"]
+[ext_resource type="Script" uid="uid://dn850om3yr0h2" path="res://ui/MinimapView.gd" id="4_p3v3d"]
+
+[node name="World" type="Node3D" unique_id=750021675]
+script = ExtResource("1_55fkc")
+cell_scene = ExtResource("2_c2cjw")
+metrics_label_path = NodePath("UI/MapPanel/VBoxContainer/Params")
+randomize_parameters = true
+room_count_range = Vector2i(30, 45)
+min_separation_range = Vector2(40, 70)
+max_iterations_range = Vector2i(15, 15)
+ant_count_range = Vector2i(50, 50)
+alpha_range = Vector2(1.5, 2)
+target_clustering_range = Vector2(0.9, 0.9)
+minimap_path = NodePath("UI/MapPanel/VBoxContainer/Minimap")
+map_ui_path = NodePath("UI")
+
+[node name="Player" parent="." unique_id=1829883153 instance=ExtResource("3_ii2sf")]
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=11976010]
+
+[node name="MapPanel" type="Panel" parent="UI" unique_id=204665435]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MapPanel" unique_id=940659227]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Minimap" type="Control" parent="UI/MapPanel/VBoxContainer" unique_id=486462352]
+custom_minimum_size = Vector2(100, 700)
+layout_mode = 2
+script = ExtResource("4_p3v3d")
+
+[node name="Params" type="Label" parent="UI/MapPanel/VBoxContainer" unique_id=17925379]
+layout_mode = 2
